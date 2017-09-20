@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:700|Roboto:100,300,400,900" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        <link rel="icon" href="css/images/logo01.png" type="image/gif" sizes="16x16">
+        <title>Doação</title>
+    </head>
+    <body ng-app="doacao" ng-controller="BodyController" class="background" ng-class="currentState">
+        <div class="">
+            <ui-view></ui-view>
+        </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCRQQK2lgkFZAPkAPtl_dZJ71mKuAms248",
+        authDomain: "doacao-989f4.firebaseapp.com",
+        databaseURL: "https://doacao-989f4.firebaseio.com",
+        projectId: "doacao-989f4",
+        storageBucket: "doacao-989f4.appspot.com",
+        messagingSenderId: "897143310669"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/app.min.js"></script>
+    </body>
+</html>

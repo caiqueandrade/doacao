@@ -1,0 +1,142 @@
+<section>
+    <div class="container-externo col-sm-10 col-sm-offset-1 text-center">
+        <div class="container col-sm-10 col-sm-offset-1 text-center">
+            <!-- HEADER -->
+            <img ng-src="css/images/logo-branco.svg" alt="logo" class="logo-home">
+            <h3 class="sub-titulo">Olá {{dados.nome}},</h3>
+            <h3 class="sub-titulo">Procure os hemocentros mais próximos de você.</h3>
+
+            <!-- BUSCA -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <form>
+                        <div class="form-group" id="divIputCep">
+                            <input class="form-control icone-busca" id="inputCep" type="text" name="field"
+                            placeholder="CEP" ng-change="buscar()" ng-model="cep" ui-br-cep-mask>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MAPA -->
+        <div class="col-sm-12">
+            <!-- <div class="mapa"></div> -->
+            <div id="mapa"></div>
+
+            <!-- AGENDAMENTO -->
+            <div class="agendamento">
+                <img src="css/images/calendario.svg" class="calendario-icon" alt="Calendário" aria-hidden="true"
+                ng-mouseover="aparecer=true" ng-mouseleave="aparecer=false" align="left"></img>
+                <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"
+                ng-mouseover="aparecer=true" ng-mouseleave="aparecer=false"></span> -->
+                <div class="box-agendamento" ng-show="aparecer">
+                    <p class="paragrafo-calendario text-left">Crie um lembrete na sua agenda para a sua próxima doação</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CALENDÁRIO -->
+        <div class="col-sm-12 titulo-calendario">
+            <h3 class="calendario-titulo">Calendário</h3>
+            <p class="subtitulo-calendario">Fique por dentro do que acontece na sua cidade.</p>
+        </div>
+
+        <div class="row rowCalendario">
+            <div class="col-sm-3" ng-repeat="item in cardsCalendario">
+                <div class="thumbnail1">
+                      <img ng-src="{{item.imagem}}" alt="Imagem">
+                      <div class="caption">
+                          <div class="calendario-categoria1" align="left">
+                              <p class="titulo-categoria1" align="center">{{item.titulo}}</p>
+                          </div>
+                        <p class="sub-titulo-categoria1" align="left">{{item.subTitulo}}</p>
+                        <p class="pontuacao-categoria1" align="left">{{item.pontuacao}} pts</p>
+                      </div>
+                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="">
+            <img class="slide-icon" src="css/images/slide.svg"></div>
+            <button class="botao icone-eventos">Mais eventos</button>
+        </div>
+
+
+
+        <!-- PONTUAÇÃO -->
+        <div class="col-sm-12 pontuacao">
+            <img class="icone-pontuacao" src="css/images/nivel-icon.svg" alt="Nível Verde">
+            <h3 class="pontuacao-titulo">114 pontos</h3>
+            <div class="row">
+                <button class="botao botao-pontuacao icone-pontos">Trocar Pontos</button>
+            </div>
+            <h3 class="pontuacao-titulo">Faltam 100 pontos para o nível azul</h3>
+            <img class="icone-nivel-azul" src="css/images/nivel-azul.svg" align="right">
+            <div class="outine-nivel">
+                <div class="nivel"></div>
+            </div>
+            <div class="">
+                <button class="botao icone-compartilhe">Compartilhe</button>
+            </div>
+            <div class="col-sm-12">
+                <button class="botao icone-conquistas">Conquistas</button>
+            </div>
+        </div>
+
+
+        <!-- CLASSIFICAÇÃO -->
+        <div class="col-sm-12">
+            <img class="icone-classificacao" src="css/images/classificacao.svg" alt="classificacao">
+            <h3 class="classificacao-titulo">Classificação</h3>
+            <button class="botao icone-seta-down">No ano</button>
+        </div>
+
+        <div class="col-sm-12 classificacao-landing">
+            <ul class="list-group" id="lista-classificacao-home" align="center">
+                <li class="list-group-item" id="item-classificacao-home">1º
+                    <img ng-src="css/images/thais.png" alt="thais" class="foto-classificacao-home"> <span class="nome-classificacao-home" align="left">Thais Jacoponi </span> <span class="pts-classificacao-home align="left"">720 pontos</span> <img ng-src="css/images/icon-like.svg" alt="like" class="icone-classificacao-home"> <img ng-src="css/images/icon-msg.svg" alt="enviar-mensagem" class="icone-classificacao-home"></span></li>
+                <li class="list-group-item" id="item-classificacao-home">2º
+                    <img ng-src="css/images/rafael.png" alt="rafael" class="foto-classificacao-home"> <span class="nome-classificacao-home" align="left">Rafael Ochoa </span><span class="pts-classificacao-home align="left"">540 pontos</span> <img ng-src="css/images/icon-like.svg" alt="like" class="icone-classificacao-home"> <img ng-src="css/images/icon-msg.svg" alt="enviar-mensagem" class="icone-classificacao-home"></span></li>
+                <li class="list-group-item" id="item-classificacao-home">3º
+                    <img ng-src="css/images/felipe.png" alt="felipe" class="foto-classificacao-home"> <span class="nome-classificacao-home" align="left">Felipe Castellari </span><span class="pts-classificacao-home align="left"">355 pontos</span> <img ng-src="css/images/icon-like.svg" alt="like" class="icone-classificacao-home"> <img ng-src="css/images/icon-msg.svg" alt="enviar-mensagem" class="icone-classificacao-home"></span></li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<script>
+
+    // MAPA
+    var mapa;
+    var marker;
+
+    function initMap() {
+        mapa = new google.maps.Map(document.getElementById('mapa'), {
+            center: {lat: -23.5983334, lng: -46.6801129},
+            zoom: 11
+        });
+
+        marker = [new google.maps.Marker({
+            position: {lat: 0, lng: 0},
+            map: mapa,
+        })
+    ];
+    }
+
+    var slides = document.getElementsByClassName('rowCalendario');
+    var activeSlide = 0;
+    function advanceSlide(){
+        slides[activeSlide].classList.remove('active');
+        activeSlide++;
+        if(activeSlide >= slides.length){
+            activeSlide = 0;
+        }
+        slides[activeSlide].classList.add('active');
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD7IylVnjmcBMmkQ5zOewtahfvj0WFZKc&callback=initMap" async defer></script>

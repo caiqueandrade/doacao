@@ -1,0 +1,17 @@
+{
+  "name": "doacao-master",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@uirouter/angular-hybrid": "^3.1.4",
+    "angular": "^1.6.6",
+    "angular-input-masks": "^2.6.0",
+    "angularfire": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-watch": "^4.3.11",
+    "ng-onload": "^0.8.0",
+    "ngSmoothScroll": "^2.0.1"
+  }
+}

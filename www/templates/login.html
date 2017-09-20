@@ -1,0 +1,33 @@
+<section>
+    <div class="container col-sm-8 col-sm-offset-2 text-center">
+        <img ng-src="../css/images/logo01.png" alt="logo" class="logo">
+
+        <!-- E-EMAIL -->
+        <div class="form-group">
+            <div class="row">
+                <label>Insira o seu e-mail:</label>
+                <div class="col-sm-12">
+                    <input type="email" class="form-control text-center" id="inputCadastro" placeholder="E-mail"
+                    ng-model="dados.email">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SENHA -->
+        <div class="form-group">
+            <div class="row">
+                <label>Insira a sua senha:</label>
+                <div class="col-sm-12">
+                    <input type="password" class="form-control text-center" id="inputCadastro" placeholder="Senha"
+                    ng-model="dados.senha">
+                </div>
+            </div>
+        </div>
+
+        <a ui-sref="cadastro">Não tem conta, cadastre-se aqui.</a>
+        <br>
+        <button class="botao" ng-click="login()">Login</button>
+    </div>
+
+</section>

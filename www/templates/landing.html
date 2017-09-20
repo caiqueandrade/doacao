@@ -1,0 +1,130 @@
+<section id="background-landing" class="background">
+    <!-- BACKGROUND -->
+    <div class="backgroundLanding">
+            <div class="overlay"></div>
+            <div class="image"></div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="container col-xs-12 text-left">
+        <img ng-src="css/images/logo-branco.svg" alt="logo" class="logo">
+    </div>
+
+    <div class="container-externo col-xs-12 margin-topHeader">
+        <div class="container col-xs-4 text-right">
+            <p class="sub-titulo-landing">ENCONTRE OS PONTOS DE COLETA PERTO DE VOCÊ.</p>
+        </div>
+        <div class="position container col-xs-8 text-left">
+            <h1>Doe.</h1>
+        </div>
+    </div>
+
+    <!-- BUSCA -->
+    <div class="col-sm-12 barra-cep-margin">
+        <div class="barra-cep-landing col-sm-10 col-sm-offset-1">
+            <span class="sub-titulo-chamadaCep active icone-pin">CEP DE CASA</span>
+            <span class="sub-titulo-chamadaCep icone-pin">CEP DO TRABALHO</span>
+            <span class="sub-titulo-chamadaCep icone-pin">CEP DA FACULDADE</span>
+            <span class="sub-titulo-chamadaCep icone-pin">CEP DA CASA DO PRIMO</span>
+        </div>
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="row col-sm-12 botoesLanding">
+        <button class="botao" ng-click="redirecionarCadastro()">Criar conta</button>
+        <button class="botao" ng-click="redirecionarLogin()">Login</button>
+    </div>
+
+    <div class="col-sm-12 text-center">
+        <button class="icone-scrollDown" align="center"></button>
+    </div>
+
+    <!-- PONTUAÇÃO -->
+    <div class="col-sm-12">
+        <div class="container col-sm-4 text-right">
+            <p class="pontuacao-sub-titulo bottom-align-text">SUAS DOAÇÕES VALEM PONTOS POR AQUI.</p>
+        </div>
+    </div>
+
+    <div class="col-sm-12 text-center">
+        <h1 class="pontuacao-landing">{{contador}}</h1>
+    </div>
+
+    <div class="col-sm-12 text-center">
+        <h2>pontos</h2>
+    </div>
+
+    <!-- CLASSIFICAÇÃO -->
+    <div class="col-sm-12 classificacao-landing">
+        <p class="titulo-classificacao">ACOMPANHE SEUS AMIGOS</p>
+        <ul class="list-group" id="lista-classificacao">
+            <li class="list-group-item" id="item-classificacao">1º
+                <img ng-src="css/images/thais.png" alt="thais" class="foto-classificacao"> <span class="nome-classificacao">THAIS JACOPONI</span> <span class="pts-classificacao text-right">720 pts</span></li>
+            <li class="list-group-item" id="item-classificacao">2º
+                <img ng-src="css/images/rafael.png" alt="rafael" class="foto-classificacao"> <span class="nome-classificacao">RAFAEL OCHOA</span> <span class="pts-classificacao text-right">540 pts</span></li>
+            <li class="list-group-item" id="item-classificacao">3º
+                <img ng-src="css/images/felipe.png" alt="felipe" class="foto-classificacao"> <span class="nome-classificacao">FELIPE CASTELLARI</span> <span class="pts-classificacao">355 pts</span></li>
+        </ul>
+    </div>
+
+        <!-- BENEFÍCIOS -->
+    <div class="col-sm-12">
+        <div class="container col-sm-4 text-right">
+            <p class="beneficios-sub-titulo bottom-align-text">ACUMULE PONTOS E TROQUE POR BENEFÍCIOS REAIS.</p>
+        </div>
+        <div class="text-right">
+            <p class="beneficios-marcadagua">GENTILEZA<br>GERA<br>GENTILEZA</p>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <!-- BLOCO SPOTIFY -->
+        <div class="thumbmail-beneficios1 col-xs-4" align="left">
+            <img ng-src="css/images/Spotify_Logo_RGB_White.png" alt="spotify" class="logo-spotify">
+            <p class="titulo-beneficios">1 mês grátis</p>
+            <img ng-src="css/images/03-playing-view-ios.png" alt="spotify" class="img-spotify">
+            <h4 class="divider"><br>
+            <span>650 pts</span></h4>
+        </div>
+        <!-- BLOCO UBER -->
+        <div class="thumbmail-beneficios2 col-xs-4" align="left">
+            <img ng-src="css/images/uber.svg" alt="uber" class="logo-uber">
+            <p class="titulo-beneficios">50% de desconto*</p>
+            <img ng-src="css/images/Uber_NY_request-screenshot.png" alt="uber" class="img-uber">
+            <h4 class="divider"><br>
+            <span>250 pts</span></h4>
+        </div>
+        <!-- BLOCO AMAZON -->
+        <div class="thumbmail-beneficios3 col-xs-4" align="left">
+            <img ng-src="css/images/amazon.svg" alt="spotify" class="logo-spotify">
+            <p class="titulo-beneficios">R$65 em crédito</p>
+            <img ng-src="css/images/amazon-gift-card.png" alt="amazon" class="img-amazon">
+            <h4 class="divider"><br>
+            <span>400 pts</span></h4>
+        </div>
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="row col-sm-12 botoesLanding-rodape">
+        <button class="azul" ng-click="redirecionarCadastro()">Criar conta</button>
+        <button class="azul2" ng-click="redirecionarLogin()">Login</button>
+    </div>
+
+</section>
+
+
+<script>
+    var textos = document.querySelectorAll('.sub-titulo-chamadaCep');
+    var textoActive = 0;
+
+    var trocarTexto = function(){
+        textos[textoActive].classList.remove('active');
+        textoActive++;
+        if(textoActive == textos.length){
+            textoActive = 0;
+        }
+        textos[textoActive].classList.add('active');
+    };
+
+    setInterval(trocarTexto, 1000);
+</script>
